@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>ProjectMikky — Infrastructure Engineer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#050816;
+    --panel:#0c1222;
+    --panel2:#11182d;
+    --line:rgba(255,255,255,0.08);
+    --text:#f5f7ff;
+    --muted:#8d97b5;
+    --accent:#4f8cff;
+    --accent2:#7c5cff;
+    --glow:0 0 40px rgba(79,140,255,.25);
+    --max:1280px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:
+    radial-gradient(circle at top left, rgba(79,140,255,.12), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(124,92,255,.10), transparent 30%),
+    var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    display:block;
+    width:100%;
+}
+
+.container{
+    width:92%;
+    max-width:var(--max);
+    margin:auto;
+}
+
+/* =========================
+NAV
+========================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    backdrop-filter:blur(18px);
+    background:rgba(5,8,22,.75);
+    border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+    height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:1.05rem;
+    font-weight:800;
+    letter-spacing:.08em;
+}
+
+.logo span{
+    color:var(--accent);
+}
+
+.nav-links{
+    display:flex;
+    gap:32px;
+}
+
+.nav-links a{
+    color:var(--muted);
+    font-size:.95rem;
+    transition:.25s;
+    position:relative;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0%;
+    height:2px;
+    background:linear-gradient(to right,var(--accent),var(--accent2));
+    transition:.25s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.nav-btn{
+    padding:12px 18px;
+    border-radius:14px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:white;
+    font-weight:600;
+    box-shadow:var(--glow);
+}
+
+.menu-toggle{
+    display:none;
+    font-size:1.6rem;
+    cursor:pointer;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:120px;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:80px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 18px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.03);
+    margin-bottom:28px;
+    color:#dbe6ff;
+    font-size:.88rem;
+}
+
+.badge-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#42ff87;
+    box-shadow:0 0 15px #42ff87;
+}
+
+.hero h1{
+    font-size:5rem;
+    line-height:1.02;
+    font-weight:900;
+    letter-spacing:-0.04em;
+    margin-bottom:24px;
+}
+
+.hero h1 span{
+    background:linear-gradient(to right,var(--accent),#b9caff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:var(--muted);
+    line-height:1.9;
+    font-size:1.08rem;
+    max-width:650px;
+}
+
+.hero-actions{
+    margin-top:42px;
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.btn-primary{
+    padding:16px 28px;
+    border-radius:16px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:white;
+    font-weight:700;
+    box-shadow:var(--glow);
+}
+
+.btn-secondary{
+    padding:16px 28px;
+    border-radius:16px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.03);
+}
+
+/* =========================
+TERMINAL PANEL
+========================= */
+
+.hero-panel{
+    background:linear-gradient(180deg,var(--panel),var(--panel2));
+    border:1px solid var(--line);
+    border-radius:30px;
+    padding:28px;
+    overflow:hidden;
+    position:relative;
+}
+
+.hero-panel::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at top right, rgba(79,140,255,.18), transparent 40%);
+}
+
+.terminal{
+    background:#060915;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.08);
+    position:relative;
+    z-index:2;
+}
+
+.terminal-top{
+    padding:14px 18px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    display:flex;
+    gap:8px;
+}
+
+.term-dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#444;
+}
+
+.term-body{
+    padding:28px;
+    color:#d7e3ff;
+    line-height:2;
+    font-size:.95rem;
+}
+
+.green{
+    color:#43ff85;
+}
+
+.blue{
+    color:#79aaff;
+}
+
+/* =========================
+STATS
+========================= */
+
+.stats{
+    margin-top:-70px;
+    position:relative;
+    z-index:5;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
+.stat-card{
+    padding:28px;
+    border-radius:24px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.03);
+    backdrop-filter:blur(10px);
+}
+
+.stat-card h3{
+    font-size:2.2rem;
+    margin-bottom:10px;
+}
+
+.stat-card p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* =========================
+SECTIONS
+========================= */
+
+section{
+    padding:120px 0;
+}
+
+.section-title{
+    font-size:2.9rem;
+    font-weight:800;
+    margin-bottom:18px;
+}
+
+.section-sub{
+    max-width:760px;
+    color:var(--muted);
+    line-height:1.9;
+    margin-bottom:60px;
+}
+
+/* =========================
+INFRA
+========================= */
+
+.infra-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.infra-card{
+    padding:34px;
+    border-radius:28px;
+    background:linear-gradient(180deg,var(--panel),var(--panel2));
+    border:1px solid var(--line);
+    transition:.3s;
+}
+
+.infra-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(79,140,255,.35);
+}
+
+.infra-card h3{
+    margin-bottom:16px;
+    font-size:1.3rem;
+}
+
+.infra-card p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* =========================
+PROJECTS
+========================= */
+
+.project-card{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:42px;
+    padding:42px;
+    border-radius:32px;
+    border:1px solid var(--line);
+    background:linear-gradient(180deg,var(--panel),var(--panel2));
+}
+
+.project-slider{
+    position:relative;
+}
+
+.slides{
+    position:relative;
+    height:500px;
+    border-radius:24px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.slide{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity .8s ease;
+}
+
+.slide.active{
+    opacity:1;
+}
+
+.slider-dots{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:20px;
+}
+
+.dot-slide{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:rgba(255,255,255,.2);
+    cursor:pointer;
+    transition:.25s;
+}
+
+.dot-slide.active{
+    background:white;
+}
+
+.project-content h3{
+    font-size:2rem;
+    margin-bottom:18px;
+}
+
+.project-content p{
+    color:var(--muted);
+    line-height:1.9;
+    margin-bottom:28px;
+}
+
+.tech-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:34px;
+}
+
+.tech-list span{
+    padding:10px 14px;
+    border-radius:999px;
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--line);
+    color:#dfe7ff;
+    font-size:.85rem;
+}
+
+/* =========================
+VIDEOS
+========================= */
+
+.video-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.video-card{
+    overflow:hidden;
+    border-radius:26px;
+    border:1px solid var(--line);
+    background:linear-gradient(180deg,var(--panel),var(--panel2));
+}
+
+.video-card iframe{
+    width:100%;
+    height:220px;
+    border:none;
+}
+
+.video-content{
+    padding:24px;
+}
+
+.video-content h3{
+    margin-bottom:12px;
+}
+
+.video-content p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* =========================
+ABOUT
+========================= */
+
+.about-box{
+    padding:52px;
+    border-radius:30px;
+    border:1px solid var(--line);
+    background:linear-gradient(180deg,var(--panel),var(--panel2));
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+}
+
+.about-grid ul{
+    list-style:none;
+}
+
+.about-grid li{
+    margin-bottom:18px;
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* =========================
+CONTACT
+========================= */
+
+.contact-box{
+    text-align:center;
+    padding:80px 40px;
+    border-radius:32px;
+    border:1px solid var(--line);
+    background:
+    radial-gradient(circle at top, rgba(79,140,255,.16), transparent 40%),
+    linear-gradient(180deg,var(--panel),var(--panel2));
+}
+
+.contact-box h2{
+    font-size:3rem;
+    margin-bottom:22px;
+}
+
+.contact-box p{
+    max-width:700px;
+    margin:auto;
+    color:var(--muted);
+    line-height:1.9;
+}
+
+.contact-actions{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+    padding:40px 0;
+    border-top:1px solid var(--line);
+}
+
+.footer-grid{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.footer-copy{
+    color:var(--muted);
+    font-size:.95rem;
+}
+
+.footer-status{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#dbe6ff;
+    font-size:.92rem;
+}
+
+.status-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#43ff85;
+    box-shadow:0 0 12px #43ff85;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:1100px){
+
+.hero-grid,
+.project-card,
+.about-grid{
+    grid-template-columns:1fr;
+}
+
+.infra-grid,
+.video-grid,
+.stats-grid{
+    grid-template-columns:1fr 1fr;
+}
+
+.hero h1{
+    font-size:4rem;
+}
+
+}
+
+@media(max-width:780px){
+
+.menu-toggle{
+    display:block;
+}
+
+.nav-btn{
+    display:none;
+}
+
+.nav-links{
+    position:absolute;
+    top:78px;
+    left:0;
+    width:100%;
+    background:#08101f;
+    flex-direction:column;
+    padding:30px;
+    display:none;
+    border-bottom:1px solid var(--line);
+}
+
+.nav-links.active{
+    display:flex;
+}
+
+.hero h1{
+    font-size:3rem;
+}
+
+.stats-grid,
+.infra-grid,
+.video-grid{
+    grid-template-columns:1fr;
+}
+
+.section-title{
+    font-size:2.2rem;
+}
+
+.contact-box h2{
+    font-size:2.2rem;
+}
+
+.slides{
+    height:320px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav>
+
+<div class="container nav-inner">
+
+<div class="logo">
+PROJECT<span>MIKKY</span>
+</div>
+
+<div class="nav-links" id="navLinks">
+<a href="#home">Home</a>
+<a href="#infrastructure">Infrastructure</a>
+<a href="#projects">Projects</a>
+<a href="#demos">Demos</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</div>
+
+<a href="mailto:contact@projectmikky.com" class="nav-btn">
+Contact
+</a>
+
+<div class="menu-toggle" id="menuToggle">
+☰
+</div>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="container hero-grid">
+
+<div>
+
+<div class="badge">
+<div class="badge-dot"></div>
+Production Infrastructure Engineer
+</div>
+
+<h1>
+Building resilient
+<span>email infrastructure</span>
+at scale.
+</h1>
+
+<p>
+ProjectMikky is led by Michael, an infrastructure engineer focused on
+enterprise-grade email systems, SMTP architecture, security hardening,
+cloud automation, and scalable deployment engineering.
+</p>
+
+<div class="hero-actions">
+
+<a href="#projects" class="btn-primary">
+View Infrastructure
+</a>
+
+<a href="https://github.com/projectmikky/vses-cloud" target="_blank" class="btn-secondary">
+GitHub Repository
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-panel">
+
+<div class="terminal">
+
+<div class="terminal-top">
+<div class="term-dot"></div>
+<div class="term-dot"></div>
+<div class="term-dot"></div>
+</div>
+
+<div class="term-body">
+
+<span class="green">$</span> deploy infrastructure --global<br>
+<span class="blue">Provisioning SMTP clusters...</span><br><br>
+
+<span class="green">✓</span> DKIM configured<br>
+<span class="green">✓</span> SPF validated<br>
+<span class="green">✓</span> DMARC enforced<br>
+<span class="green">✓</span> Cloud nodes secured<br>
+<span class="green">✓</span> Monitoring operational<br><br>
+
+<span class="green">$</span> system status<br>
+<span class="blue">All systems operational.</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="stats">
+
+<div class="container">
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<h3>99.9%</h3>
+<p>Infrastructure uptime and reliability engineering.</p>
+</div>
+
+<div class="stat-card">
+<h3>SMTP</h3>
+<p>Enterprise email architecture and delivery systems.</p>
+</div>
+
+<div class="stat-card">
+<h3>Cloud</h3>
+<p>Secure scalable deployments across production servers.</p>
+</div>
+
+<div class="stat-card">
+<h3>24/7</h3>
+<p>Monitoring automation and operational infrastructure.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- INFRA -->
+
+<section id="infrastructure">
+
+<div class="container">
+
+<h2 class="section-title">
+Infrastructure Focus
+</h2>
+
+<p class="section-sub">
+Production-focused engineering across email systems,
+cloud operations, deliverability optimization,
+security hardening, automation pipelines,
+and reliability tooling.
+</p>
+
+<div class="infra-grid">
+
+<div class="infra-card">
+<h3>SMTP Infrastructure</h3>
+<p>
+High-volume mail routing, Postfix deployment,
+relay management, IP reputation handling,
+and scalable outbound architecture.
+</p>
+</div>
+
+<div class="infra-card">
+<h3>Security Engineering</h3>
+<p>
+SPF, DKIM, DMARC enforcement, TLS hardening,
+mail authentication, abuse mitigation,
+and infrastructure protection.
+</p>
+</div>
+
+<div class="infra-card">
+<h3>Cloud Automation</h3>
+<p>
+Automated deployments, Linux administration,
+infrastructure provisioning, monitoring,
+and operational scaling systems.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="container">
+
+<h2 class="section-title">
+Production Projects
+</h2>
+
+<p class="section-sub">
+Infrastructure deployments, monitoring systems,
+SMTP tooling, and scalable engineering built for
+performance, security, and operational reliability.
+</p>
+
+<div class="project-card">
+
+<!-- SLIDER -->
+
+<div class="project-slider">
+
+<div class="slides">
+
+<img class="slide active"
+src="https://raw.githubusercontent.com/projectmikky/vses-cloud/main/screenshots/dashboard.png">
+
+<img class="slide"
+src="https://raw.githubusercontent.com/projectmikky/vses-cloud/main/screenshots/fleet.png">
+
+<img class="slide"
+src="https://raw.githubusercontent.com/projectmikky/vses-cloud/main/screenshots/domains.png">
+
+<img class="slide"
+src="https://raw.githubusercontent.com/projectmikky/vses-cloud/main/screenshots/analytics.png">
+
+<img class="slide"
+src="https://raw.githubusercontent.com/projectmikky/vses-cloud/main/screenshots/campaign.png">
+
+</div>
+
+<div class="slider-dots">
+
+<span class="dot-slide active"></span>
+<span class="dot-slide"></span>
+<span class="dot-slide"></span>
+<span class="dot-slide"></span>
+<span class="dot-slide"></span>
+
+</div>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="project-content">
+
+<h3>
+VSES Cloud Infrastructure
+</h3>
+
+<p>
+Enterprise-grade SMTP infrastructure platform engineered
+for scalable email operations, domain management,
+fleet deployment, analytics, campaign routing,
+and operational automation.
+</p>
+
+<div class="tech-list">
+<span>Postfix</span>
+<span>SMTP</span>
+<span>Linux</span>
+<span>Cloud VPS</span>
+<span>Security</span>
+<span>Automation</span>
+<span>DNS</span>
+<span>Monitoring</span>
+</div>
+
+<a href="https://github.com/projectmikky/vses-cloud"
+target="_blank"
+class="btn-primary">
+View Repository
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- DEMOS -->
+
+<section id="demos">
+
+<div class="container">
+
+<h2 class="section-title">
+Infrastructure Demos
+</h2>
+
+<p class="section-sub">
+Technical walkthroughs, deployment showcases,
+SMTP infrastructure demonstrations,
+and cloud engineering workflows.
+</p>
+
+<div class="video-grid">
+
+<div class="video-card">
+
+<iframe
+src="https://www.youtube.com/embed?listType=user_uploads&list=projectmikky"
+allowfullscreen>
+</iframe>
+
+<div class="video-content">
+<h3>Cloud Infrastructure</h3>
+<p>
+Production deployment systems, node orchestration,
+and scalable server provisioning workflows.
+</p>
+</div>
+
+</div>
+
+<div class="video-card">
+
+<iframe
+src="https://www.youtube.com/embed?listType=user_uploads&list=projectmikky"
+allowfullscreen>
+</iframe>
+
+<div class="video-content">
+<h3>Email Systems</h3>
+<p>
+SMTP architecture, mail routing,
+domain authentication, and automation engineering.
+</p>
+</div>
+
+</div>
+
+<div class="video-card">
+
+<iframe
+src="https://www.youtube.com/embed?listType=user_uploads&list=projectmikky"
+allowfullscreen>
+</iframe>
+
+<div class="video-content">
+<h3>Security Engineering</h3>
+<p>
+Infrastructure hardening, TLS configuration,
+mail security, and monitoring pipelines.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="about-box">
+
+<h2 class="section-title">
+About Michael
+</h2>
+
+<div class="about-grid">
+
+<div>
+
+<ul>
+<li>Infrastructure engineer specializing in enterprise-grade email systems.</li>
+
+<li>Focused on SMTP architecture, deliverability, cloud deployments, and operational reliability.</li>
+
+<li>Builder of VSES Cloud infrastructure and scalable automation tooling.</li>
+
+<li>Engineering systems with security-first deployment practices.</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<ul>
+
+<li>Experienced with Linux administration, DNS systems, monitoring, and infrastructure automation.</li>
+
+<li>Focused on performance optimization and production scalability.</li>
+
+<li>Developing reliable cloud infrastructure with enterprise operational standards.</li>
+
+<li>Passionate about resilient infrastructure engineering and secure distributed systems.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="contact-box">
+
+<h2>
+Let's Build Infrastructure That Scales.
+</h2>
+
+<p>
+Available for infrastructure engineering opportunities,
+technical consulting, cloud architecture,
+and enterprise-focused collaborations.
+</p>
+
+<div class="contact-actions">
+
+<a href="mailto:contact@projectmikky.com" class="btn-primary">
+Email Contact
+</a>
+
+<a href="https://github.com/projectmikky/vses-cloud"
+target="_blank"
+class="btn-secondary">
+GitHub
+</a>
+
+<a href="https://www.youtube.com/@projectmikky"
+target="_blank"
+class="btn-secondary">
+YouTube
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container footer-grid">
+
+<div class="footer-copy">
+© 2026 ProjectMikky • Infrastructure Engineering • Email Systems
+</div>
+
+<div class="footer-status">
+
+<div class="status-dot"></div>
+
+Infrastructure Status: Operational
+
+</div>
+
+</div>
+
+</footer>
+
+<script>
+
+/* MOBILE NAV */
+
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+});
+
+/* SLIDER */
+
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot-slide');
+
+let currentSlide = 0;
+
+function showSlide(index){
+
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+    });
+
+    dots.forEach(dot => {
+        dot.classList.remove('active');
+    });
+
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+}
+
+function nextSlide(){
+
+    currentSlide++;
+
+    if(currentSlide >= slides.length){
+        currentSlide = 0;
+    }
+
+    showSlide(currentSlide);
+}
+
+setInterval(nextSlide, 3500);
+
+dots.forEach((dot, index) => {
+
+    dot.addEventListener('click', () => {
+
+        currentSlide = index;
+
+        showSlide(currentSlide);
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
