@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Infra | Project Mikky</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="cursor" id="cursor"></div>
+
+<nav>
+    <div class="container nav-inner">
+
+        <a href="index.html" class="logo">PROJECT MIKKY</a>
+
+        <div class="nav-right">
+            <a href="videos.html">Videos</a>
+            <a href="products.html">Products</a>
+            <a href="projects.html">Projects</a>
+            <a href="infra.html">Infra</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+    </div>
+</nav>
+
+<section class="hero container reveal">
+
+    <h1>Infrastructure.</h1>
+
+    <p>
+        System design focused on email delivery pipelines, DNS control, routing logic,
+        and production-grade reliability engineering.
+    </p>
+
+</section>
+
+<section class="section container reveal">
+
+    <h2>Architecture Model</h2>
+    <p>
+        Systems are designed as layered components: routing, execution, and monitoring.
+        Each layer is isolated to prevent cascade failure and ensure controllable behavior under load.
+    </p>
+
+</section>
+
+<section class="section container reveal">
+
+    <h2>Mail Flow System</h2>
+    <p>
+        SMTP delivery flows through controlled queues with retry logic and failure detection.
+        DNS configuration is tightly coupled with sender identity and deliverability control.
+    </p>
+
+</section>
+
+<section class="section container reveal">
+
+    <h2>Failure Handling</h2>
+    <p>
+        Failure is treated as a core system state. Every critical operation is designed with
+        retry paths, fallback behavior, and isolation boundaries to prevent full system collapse.
+    </p>
+
+</section>
+
+<section class="section container reveal">
+
+    <h2>Operational Design</h2>
+    <p>
+        Infrastructure is built for predictability over complexity.
+        Every component exposes clear state, logging paths, and recoverability mechanisms.
+    </p>
+
+</section>
+
+<footer>
+    <div class="container">
+        © 2026 Project Mikky — VSES.cloud
+    </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

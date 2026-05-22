@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Products | Project Mikky</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<style>
+
+/* GRID = tighter infra layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+}
+
+/* CARD = system panel */
+.card {
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.02);
+    border-radius: 14px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.15);
+}
+
+/* IMAGE = system preview panel */
+.card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* TITLE = system name */
+.card-content h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.2px;
+}
+
+/* DESCRIPTION = system function */
+.card-content p {
+    margin-top: 6px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.7);
+}
+
+/* META LABEL (new infra feel) */
+.meta {
+    margin-top: 8px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="bg"></div>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+
+<!-- NAV -->
+<nav>
+<div class="container nav-inner">
+
+    <a href="index.html" class="logo">PROJECT MIKKY</a>
+
+    <div class="nav-right">
+        <a href="videos.html">Videos</a>
+        <a href="products.html">Products</a>
+        <a href="projects.html">Projects</a>
+        <a href="infra.html">Infra</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero container reveal">
+
+    <h1 class="page-title">System Products</h1>
+
+    <p class="page-subtitle">
+        Modular infrastructure systems powering VSES.cloud — designed for scale, automation, and observability.
+    </p>
+
+</section>
+
+<!-- GRID -->
+<section class="section container">
+
+<div class="grid">
+
+    <!-- DASHBOARD -->
+    <div class="card reveal">
+        <img src="https://raw.githubusercontent.com/projectmikky/vses-cloud/main/screenshots/dashboard.png" alt="Dashboard"/>
+
+        <div class="card-content">
+            <h3>VSES Dashboard</h3>
+            <div class="meta">Control Plane</div>
+            <p>Real-time infrastructure monitoring, analytics aggregation, and system visibility layer.</p>
+        </div>
+    </div>
+
+    <!-- FLEET -->
+    <div class="card reveal">
+        <img src="https://raw.githubusercontent.com/projectmikky/vses-cloud/main/screenshots/fleet.png" alt="Fleet"/>
+
+        <div class="card-content">
+            <h3>Fleet Orchestration</h3>
+            <div class="meta">Compute Layer</div>
+            <p>Distributed node orchestration system for scaling services across cloud environments.</p>
+        </div>
+    </div>
+
+    <!-- DOMAINS -->
+    <div class="card reveal">
+        <img src="https://raw.githubusercontent.com/projectmikky/vses-cloud/main/screenshots/domains.png" alt="Domains"/>
+
+        <div class="card-content">
+            <h3>Domain Intelligence</h3>
+            <div class="meta">Routing Layer</div>
+            <p>Automated service discovery and routing intelligence for microservice architecture.</p>
+        </div>
+    </div>
+
+    <!-- ANALYTICS -->
+    <div class="card reveal">
+        <img src="https://raw.githubusercontent.com/projectmikky/vses-cloud/main/screenshots/analytics.png" alt="Analytics"/>
+
+        <div class="card-content">
+            <h3>Analytics Engine</h3>
+            <div class="meta">Data Layer</div>
+            <p>Real-time event streaming and observability engine for infrastructure insights.</p>
+        </div>
+    </div>
+
+    <!-- CAMPAIGN -->
+    <div class="card reveal">
+        <img src="https://raw.githubusercontent.com/projectmikky/vses-cloud/main/screenshots/campaign.png" alt="Campaign"/>
+
+        <div class="card-content">
+            <h3>Campaign System</h3>
+            <div class="meta">Automation Layer</div>
+            <p>Event-driven workflow automation system for scheduling and distributed execution.</p>
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="container">
+    © 2026 Project Mikky — VSES.cloud
+</div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
